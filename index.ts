@@ -1,7 +1,7 @@
-import { saveMostHittedLinks } from "./links";
-import { setUpStorage } from "./storage";
-import { saveInputs } from "./inputs";
-import { askUsersPermission } from "./user-analyze";
+import { saveMostHittedLinks } from "./src/links";
+import { setUpStorage } from "./src/storage";
+import { saveInputs } from "./src/inputs";
+import { askUsersPermission } from "./src/user-analyze";
 
 const SetUpUXperiment = () => {
   window.addEventListener("load", () => {
