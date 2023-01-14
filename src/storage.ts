@@ -1,5 +1,5 @@
-import { DATAINTERFACE } from "./interfaces";
-import { IS_ALLOWED, STORAGE_KEY } from "./keys";
+import { DATAINTERFACE } from './interfaces';
+import { IS_ALLOWED, STORAGE_KEY } from './keys';
 
 const defaultObj = {
   urls: [],
@@ -7,8 +7,7 @@ const defaultObj = {
 };
 
 export const setUpStorage = () => {
-  if (!localStorage.getItem(STORAGE_KEY))
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultObj));
+  if (!localStorage.getItem(STORAGE_KEY)) localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultObj));
 };
 
 export const getData = () => {

@@ -1,6 +1,6 @@
-import { URLINTERFACE } from "./interfaces";
-import { getData, setData } from "./storage";
-import { addButtonAutoComplete } from "./inputs";
+import { URLINTERFACE } from './interfaces';
+import { getData, setData } from './storage';
+import { addButtonAutoComplete } from './inputs';
 
 export const saveMostHittedLinks = () => {
   document.addEventListener(`click`, (e) => {
@@ -8,9 +8,7 @@ export const saveMostHittedLinks = () => {
     if (origin) {
       const data = getData();
 
-      const index = data.urls.findIndex(
-        (x: URLINTERFACE) => x.address === origin.baseURI
-      );
+      const index = data.urls.findIndex((x: URLINTERFACE) => x.address === origin.baseURI);
 
       if (index === -1)
         data.urls.push({
@@ -19,7 +17,7 @@ export const saveMostHittedLinks = () => {
           count: 1,
         });
       else {
-        data.urls[index]["count"] = Number(data.urls[index]["count"]) + 1;
+        data.urls[index].count = Number(data.urls[index].count) + 1;
       }
 
       setData(data);
@@ -29,7 +27,7 @@ export const saveMostHittedLinks = () => {
 
 export const setEventOFURLs = (header: any) => {
   document.addEventListener(
-    "scroll",
+    'scroll',
     () => {
       const data = getData();
       const buttons = data.urls
@@ -41,21 +39,18 @@ export const setEventOFURLs = (header: any) => {
         .filter((item: URLINTERFACE) => item.address !== window.location.href)
         .slice(0, 5)
         .map((item: URLINTERFACE) => {
-          const btn = document.createElement("a");
+          const btn = document.createElement('a');
 
-          btn.setAttribute(
-            "style",
-            "padding:0.5em;margin:0.5em 12px;text-decoration:underline"
-          );
+          btn.setAttribute('style', 'padding:0.5em;margin:0.5em 12px;text-decoration:underline');
 
           btn.innerText = item.name + `(${item.count})`;
           btn.href = item.address;
           return btn;
         });
-      header.innerHTML = "";
+      header.innerHTML = '';
       buttons.forEach((e: any) => header.appendChild(e));
       addButtonAutoComplete(header);
     },
-    { passive: true }
+    { passive: true },
   );
 };
