@@ -1,11 +1,12 @@
 import { INPUTINTERFACE } from './interfaces';
 import { getData, setData } from './storage';
 
-const types = ['input[type=text]', 'textarea'];
+const types = ['input', 'textarea'];
 
 export const saveInputs = () => {
   const data = getData();
   const textFields = document.querySelectorAll(types.join(', '));
+  console.warn("🚀 ~ file: inputs.ts:9 ~ saveInputs ~ textFields", textFields)
 
   textFields.forEach((item) => {
     item.addEventListener('change', (e) => {

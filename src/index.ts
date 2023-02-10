@@ -1,6 +1,6 @@
 import { saveMostHittedLinks } from './links';
 import { setUpStorage } from './storage';
-import { saveInputs } from './inputs';
+import { preloadInputData, saveInputs } from './inputs';
 import { askUsersPermission } from './user-analyze';
 
 const SetUpUXperiment = () => {

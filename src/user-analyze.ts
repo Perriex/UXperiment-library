@@ -10,21 +10,19 @@ export const askUsersPermission = () => {
     header.setAttribute(
       'style',
       `
-          position: fixed;
+          position: relative;
           top: 0;
           left: 0;
           width: 100%;
           background-color: #eee;
-          opacity:0.6;
           max-height: 6vh;
-          z-index: 100000000;
           padding:1em;
           text-align: center;
         `,
     );
     if (getActionStatus('true')) {
       setEventOFURLs(header);
-      menu.appendChild(header);
+      menu.prepend(header);
     } else if (getActionStatus('false')) {
       setActionStatus('false');
     } else {
@@ -48,7 +46,8 @@ export const askUsersPermission = () => {
 
       header.appendChild(acceptButton);
       header.appendChild(denyButton);
-      menu.appendChild(header);
+      menu.prepend(header);
     }
+    console.log('🚀 ~ file: user-analyze.ts:50 ~ askUsersPermission ~ menu', menu);
   }
 };
